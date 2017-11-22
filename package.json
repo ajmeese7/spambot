@@ -1,0 +1,11 @@
+{
+  "name": "spambot",
+  "version": "1.0.0",
+  "description": "Discord spambot to level up profiles on other bots",
+  "main": "app.js",
+  "author": "Aaron Meese",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
+}
