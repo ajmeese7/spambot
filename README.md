@@ -1,6 +1,6 @@
 # Spambot
 
-![Spam Usage GIF](https://user-images.githubusercontent.com/17814535/33146576-5b103a6c-cf8a-11e7-8d47-cc2938138be8.gif)
+![Spambot Usage GIF](https://user-images.githubusercontent.com/17814535/33146576-5b103a6c-cf8a-11e7-8d47-cc2938138be8.gif)
 
 Portions of this document were modified from this [awesome selfbot](https://github.com/eslachance/evie.selfbot)'s README
 by @[eslachance](https://github.com/eslachance).
@@ -9,11 +9,9 @@ This selfbot's primary purpose is to level up your profile on Discord bots such 
 or [Tatsumaki](https://tatsumaki.xyz). Of course, either of those bots must be installed on the server you intend to use
 this bot on for you to gain experience.
 
-Since your Tatsumaki profile transfers across servers (unlike mee6), you can create your own server specifically for spam messages
-and no one (except Discord) will know. When you connect to other servers, they will just see your Tatsumaki profile and think you are
-a massive G.
+Since your Tatsumaki profile transfers across servers (unlike mee6), you can create your own server specifically for spam messages and no one (except Discord) will know. When you connect to other servers, they will just see your Tatsumaki profile and think you are a massive G.
 
-mee6 gives out between 15-25 XP once per minute to prevent XP spamming, so you could change the times on the bot to reflect that very easily. It's as simple as changing `minTime = Math.ceil(2112)` to `minTime = Math.ceil(60000)` and doing the same to `maxTime`. I haven't found any information about how Tatsumaki grants XP, as it is not an open-source bot, but from what I have seen I am assuming that it follows the same principles as mee6.
+mee6 gives out between 15-25 XP once per minute to prevent XP spamming, so you could change the times on the bot to reflect that very easily. It's as simple as changing `minTime = Math.ceil(2112)` to `minTime = Math.ceil(60000)` and doing the same to `maxTime`. I actually recommend doing something like this because throwing out messages too quickly can cause `DiscordAPIError`s, which will force the bot to stop. I haven't found any information about how Tatsumaki grants XP, as it is not an open-source bot, but from what I have seen I am assuming that it follows the same principles as mee6.
 
 Please feel free to modify this in any way you like. I just ask that you give credit where credit is due (and leaving a star wouldn't hurt!). If you have any problems or suggestions, feel free to open an issue or a pull request, whichever is relevant. Just remember that this is intended to be a spambot, not a fully-functional selfbot. If you're looking for something that does awesome tricks like animating emojis or searching Google, try [SharpBot](https://github.com/RayzrDev/SharpBot) by [RayzrDev](https://github.com/RayzrDev) or the creatively-named [Discord-Selfbot](https://github.com/appu1232/Discord-Selfbot) (I'm one to talk, right?) by [appu1232](https://github.com/appu1232).
 
