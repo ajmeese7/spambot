@@ -13,15 +13,9 @@ Since your Tatsumaki profile transfers across servers (unlike mee6), you can cre
 and no one (except Discord) will know. When you connect to other servers, they will just see your Tatsumaki profile and think you are
 a massive G.
 
-Also, just so you don't freak out if this happens to you, Tatsumaki usually doesn't give you XP for every message when spamming
-like mee6 does. Their bot is a little more stingy about distributing experience points. Of course, now that I'm publishing this, they
-may implement stricter measures to prevent granting XP to spammers, but that's a problem for another time.
+mee6 gives out between 15-25 XP once per minute to prevent XP spamming, so you could change the times on the bot to reflect that very easily. It's as simple as changing `minTime = Math.ceil(2112)` to `minTime = Math.ceil(60000)` and doing the same to `maxTime`. I haven't found any information about how Tatsumaki grants XP, as it is not an open-source bot, but from what I have seen I am assuming that it follows the same principles as mee6.
 
-Please feel free to modify this in any way you like. I just ask that you give credit where credit is due (and leaving a star wouldn't
-hurt!). If you have any problems or suggestions, feel free to open an issue or a pull request, whichever is relevant. Just remember that
-this is intended to be a spambot, not a fully-functional selfbot. If you're looking for something that does awesome tricks like animating
-emojis or searching Google, try [SharpBot](https://github.com/RayzrDev/SharpBot) by [RayzrDev](https://github.com/RayzrDev) or the
-creatively-named [Discord-Selfbot](https://github.com/appu1232/Discord-Selfbot) (I'm one to talk, right?) by [appu1232](https://github.com/appu1232).
+Please feel free to modify this in any way you like. I just ask that you give credit where credit is due (and leaving a star wouldn't hurt!). If you have any problems or suggestions, feel free to open an issue or a pull request, whichever is relevant. Just remember that this is intended to be a spambot, not a fully-functional selfbot. If you're looking for something that does awesome tricks like animating emojis or searching Google, try [SharpBot](https://github.com/RayzrDev/SharpBot) by [RayzrDev](https://github.com/RayzrDev) or the creatively-named [Discord-Selfbot](https://github.com/appu1232/Discord-Selfbot) (I'm one to talk, right?) by [appu1232](https://github.com/appu1232).
 
 **Note:** Using a selfbot, especially one that spams servers with messages (like this one), may violate the [Discord terms
 of service](https://discordapp.com/terms). If you use this, your account could be shut down. I claim no responsibility if this happens to you. You have been warned.
