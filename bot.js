@@ -13,7 +13,7 @@ client.on("message", async message => {
   if (message.author.id !== client.user.id || message.content.indexOf(client.config.prefix) !== 0) return;
 
   if (command === "spam") {
-    var count = 1;
+    var count = 1; // Number of messages sent (modified by sendSpamMessage)
     var maxMessages = 100000; // Change based on how many messages you want sent
 
     function sendSpamMessage() {
@@ -24,6 +24,8 @@ client.on("message", async message => {
       message.channel.send("This is spam message #" + count);
 
       if (count < maxMessages) {
+        // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
+        // channel just for bot spamming, you can remove the below line and the entire prune command.
         message.channel.send("/prune");
         count++;
 
@@ -35,7 +37,9 @@ client.on("message", async message => {
         let maxTime = Math.floor(3779); // Arbitrary integer
         let timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
         setTimeout(sendSpamMessage, timeToWait);
-      } else { // Sends a message when completed. Else statement can be removed/modified without consequences
+      } else {
+        // Sends a message when count is equal to maxMessages. Else statement can be 
+        // modified/removed without consequence.
         message.channel.send("------------------");
         message.channel.send("I AM FINISHED!!!");
         message.channel.send("------------------");
