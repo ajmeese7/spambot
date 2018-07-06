@@ -59,8 +59,9 @@ client.on("message", async message => {
     .then(messages => {
       let message_array = messages.array();
       message_array.length = 2;
-      message_array.map(msg => msg.delete().catch(O_o => {}));
-     });
+      message_array.map(msg => msg.delete().catch(console.error));
+     })
+    .catch(console.error);
   }
 });
 
