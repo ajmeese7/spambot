@@ -40,7 +40,7 @@ Your prefix can be anything you want, but I tend to use the `/` because you're u
 
 ## Getting your login token
 
-0. Open either the web application or the installed Discord app
+0. Open the web application
 1. Use the **CTRL+SHIFT+I** keyboard shortcut.
 2. This brings up the **Developer Tools**. Go to the **Application** tab
 3. On the left, expand **Local Storage**, then click on the discordapp.com entry (it should be the only one).
