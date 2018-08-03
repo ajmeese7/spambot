@@ -27,7 +27,7 @@ client.on("message", async message => {
         if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
           // channel just for bot spamming, you can remove the below line and the entire prune command.
-          message.channel.send("/prune");
+          // message.channel.send("/prune");
           count++;
 
           /* These numbers are good for if you want the messages to be deleted.
@@ -54,15 +54,19 @@ client.on("message", async message => {
     sendSpamMessage();
   }
 
-  if (command === "prune") {
-    message.channel.fetchMessages()
-    .then(messages => {
-      let message_array = messages.array();
-      message_array.length = 2;
-      message_array.map(msg => msg.delete().catch(console.error));
-     })
-    .catch(console.error);
-  }
+  /*if (command === "prune") {
+    setTimeout(prune, 1000); // Theoretically waits long enough to avoid 10008 error
+    function prune() {
+      // IDEA: Only delete messages sent by current user? Use other bot validation...
+      message.channel.fetchMessages()
+      .then(messages => {
+        let message_array = messages.array();
+        message_array.length = 2;
+        message_array.map(msg => msg.delete().catch(console.log)); //.error
+       })
+      .catch(console.log); //.error
+    }
+  }*/
 });
 
 client.login(config.botToken);
