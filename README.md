@@ -40,7 +40,7 @@ Your prefix can be anything you want, but I tend to use the `/` because you're u
 
 ## Getting your login token
 
-0. Open either the web application or the installed Discord app
+0. Open the web application
 1. Use the **CTRL+SHIFT+I** keyboard shortcut.
 2. This brings up the **Developer Tools**. Go to the **Application** tab
 3. On the left, expand **Local Storage**, then click on the discordapp.com entry (it should be the only one).
@@ -49,6 +49,7 @@ Your prefix can be anything you want, but I tend to use the `/` because you're u
 > **KEEP YOUR TOKEN SECRET, AND NEVER SHARE IT WITH ANYONE**
 
 ## Controlling the selfbot
+I run the bot on Node v9.0.0, and I can't verify whether or not it will run on other versions. Before creating an issue, please ensure that you try with v9.0.0 or later. If you get any warnings when running `npm install`, try ignoring them and running the bot first to check if it works anyways.
 
 To start the selfbot, open a command prompt from the folder containing the repository, run:
 
