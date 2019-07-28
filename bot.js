@@ -16,18 +16,60 @@ try {
     if (command === "spam") {
       var count = 1; // Number of messages sent (modified by sendSpamMessage)
       var maxMessages = 10000; // Change based on how many messages you want sent
+      var timeToWait = null, minTime = 2000, maxTime = 4350;
+      var content = null;
+      var prune = false;
+
+      // Get command line arguments
+      var argLength = process.argv.length;
+      for (let j = 2; j < argLength; j++) {
+          // j is 2 initially to ignore `node bot.js`
+          var argsLeft = j + 1 < argLength;
+          var arg = process.argv[j];
+          var nextArg = process.argv[j + 1];
+
+          // All the flags require a second argument, so this only checks for flags if another arg exists
+          if (argsLeft) {
+            // TODO update docs and ensure proper typechecking and spit relevant error instead of running command
+            if (arg == "--message") {
+              content = nextArg;
+            } else if (arg == "--maxMessages") {
+              maxMessages = nextArg;
+            } else if (arg == "--setTime") {
+              timeToWait = nextArg;
+            } else if (arg == "--maxTime") {
+              // TODO ensure this isn't less than minTime
+              maxTime = nextArg;
+            } else if (arg == "--minTime") {
+              // TODO ensure this isn't greater than maxTime
+              minTime = nextArg;
+            }
+          }
+
+          // Doesn't require a second arg
+          if (arg == "--prune") {
+            prune = true;
+          }
+      }
 
       function sendSpamMessage() {
         // You could modify this to send a random string from an array (ex. a quote), create a
         // random sentence by pulling words from a dictionary file, or to just send a random
         // arrangement of characters and integers. Doing something like this may help prevent
         // future moderation bots from detecting that you sent a spam message.
-        message.channel.send("This is spam message #" + count);
+        if (content === null) {
+          content = "This is spam message #" + count;
+        }
+
+        message.channel.send(content);
 
         if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
-          // channel just for bot spamming, you can remove the below line and the entire prune command.
-          message.channel.send("/prune");
+          // channel just for bot spamming, you can remove the below statement and the entire prune command.
+          if (prune) {
+            message.channel.send("/prune");
+          }
+          
           count++;
 
           /* These numbers are good for if you want the messages to be deleted.
@@ -35,9 +77,10 @@ try {
            * messages in rapid succession, and this prevents that. I rarely have any spam
            * messages slip through unless there is a level up from mee6 or Tatsumaki.
            * Mileage may vary based on internet speed. */
-          let minTime = Math.ceil(2000);
-          let maxTime = Math.floor(4350); // Arbitrary integer
-          let timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
+          if (timeToWait === null) {
+            timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
+          }
+
           setTimeout(sendSpamMessage, timeToWait);
         } else {
           // Sends a message when count is equal to maxMessages. Else statement can be
