@@ -26,6 +26,7 @@ In a command prompt in your projects folder (wherever that may be), run the foll
 
 Once finished:
 
+- Ensure you have NodeJS installed on your PC by running `npm`. If not, Google how to install it and do that now
 - In the folder from where you ran the git command, run `cd spambot` and then run `npm install`
 - Edit `config.json` and enter your token and desired prefix. It should look like this afterwards:
 
