@@ -64,7 +64,7 @@ For users who want easy control over the bot without modifying any code, this is
 - `--message "Your message here"` will change the text that is spammed
 - `--maxMessages 100` will stop the bot after 100 messages are sent
 - `--setTime 1000` makes the message send exactly every 1000 milliseconds, or every second
-- ``--minTime 2000` sets minTime to 2 seconds, which will be the minimum amount of time that passes between each message sending
+- `--minTime 2000` sets minTime to 2 seconds, which will be the minimum amount of time that passes between each message sending
 - `--maxTime 5000` sets maxTime to 5 seconds, which will be the maximum amount of time that passes between each message sending
 - `--prune` will delete the messages immediately after they are sent
 
