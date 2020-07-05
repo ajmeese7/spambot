@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const config = require('./config.json');
 client.config = config;
 
-setArgValues();
 process.on('unhandledRejection', error => {
   console.error("Error trying to login with credentials! Did you update the config.json file?");
   process.exit();
@@ -15,6 +14,7 @@ var maxMessages = 10000;
 var timeToWait = null, minTime = 2000, maxTime = 4350;
 var content = null;
 var prune = false;
+setArgValues();
 
 try {
   client.on("message", async message => {
@@ -31,10 +31,11 @@ try {
         // random sentence by pulling words from a dictionary file, or to just send a random
         // arrangement of characters and integers. Doing something like this may help prevent
         // future moderation bots from detecting that you sent a spam message.
-        if (content === null) {
-          message.channel.send("This is spam message #" + count);
-        } else {
+
+        if (content) {
           message.channel.send(content);
+        } else {
+          message.channel.send("This is spam message #" + count);
         }
         
         if (count < maxMessages) {
