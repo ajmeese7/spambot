@@ -1,6 +1,20 @@
 # Spambot
 
-![Spambot Usage GIF](https://user-images.githubusercontent.com/17814535/33146576-5b103a6c-cf8a-11e7-8d47-cc2938138be8.gif)
+<p align="center">
+  <img alt="Spambot Usage GIF" src="https://user-images.githubusercontent.com/17814535/33146576-5b103a6c-cf8a-11e7-8d47-cc2938138be8.gif">
+  
+  <h3 align="center">😈 Spambot 😈</h3>
+</p>
+
+----
+
+<p align="center">
+   <img src="https://img.shields.io/badge/language-javascript-blue?color=FF69B4"/>
+   <img src="https://img.shields.io/github/license/ajmeese7/spambot"/>
+   <img src="https://img.shields.io/github/stars/ajmeese7/spambot"/>
+   <img src="https://img.shields.io/github/forks/ajmeese7/spambot"/>
+   <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
+</p>
 
 Portions of this document were modified from this [awesome selfbot](https://github.com/eslachance/evie.selfbot)'s README
 by @[eslachance](https://github.com/eslachance).
