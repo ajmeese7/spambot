@@ -1,7 +1,5 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const config = require('./config.json');
-client.config = config;
 
 process.on('unhandledRejection', error => {
   console.error("Error trying to login with credentials! Did you update the config.json file?");
@@ -9,75 +7,82 @@ process.on('unhandledRejection', error => {
 });
 
 console.log("Ready to level up!");
-var count = 1; // Number of messages sent (modified by sendSpamMessage)
 var maxMessages = 10000;
 var timeToWait = null, minTime = 2000, maxTime = 4350;
 var content = null;
 var prune = false;
 setArgValues();
 
-try {
-  client.on("message", async message => {
-    // Ignore message if the content doesn't apply to us
-    if (message.author.id !== client.user.id || message.content.indexOf(client.config.prefix) !== 0) return;
+for (const token of config.botToken) {
+  let count = 1; // Number of messages sent (modified by sendSpamMessage)
+  const client = new Discord.Client();
+  client.config = config;
 
-    const prefix = config.prefix;
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-
-    if (command === "spam") {
-      function sendSpamMessage() {
-        // You could modify this to send a random string from an array (ex. a quote), create a
-        // random sentence by pulling words from a dictionary file, or to just send a random
-        // arrangement of characters and integers. Doing something like this may help prevent
-        // future moderation bots from detecting that you sent a spam message.
-
-        if (content) {
-          message.channel.send(content);
-        } else {
-          message.channel.send("This is spam message #" + count);
-        }
-        
-        if (count < maxMessages) {
-          // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
-          // channel just for bot spamming, you can remove the below statement and the entire prune command.
-          if (prune) message.channel.send("/prune");
-          count++;
-
-          /* These numbers are good for if you want the messages to be deleted.
-           * I've also noticed that Discord pauses for about 4 seconds after you send 9
-           * messages in rapid succession, and this prevents that. I rarely have any spam
-           * messages slip through unless there is a level up from mee6 or Tatsumaki.
-           * Mileage may vary based on internet speed. */
-          if (timeToWait === null) {
-            timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
+  try {
+    client.on("message", async message => {
+      // Ignore message if the content doesn't apply to us
+      if (message.author.id !== client.user.id || message.content.indexOf(client.config.prefix) !== 0) return;
+  
+      const prefix = config.prefix;
+      const args = message.content.slice(prefix.length).trim().split(/ +/g);
+      const command = args.shift().toLowerCase();
+  
+      if (command === "spam") {
+        function sendSpamMessage() {
+          // You could modify this to send a random string from an array (ex. a quote), create a
+          // random sentence by pulling words from a dictionary file, or to just send a random
+          // arrangement of characters and integers. Doing something like this may help prevent
+          // future moderation bots from detecting that you sent a spam message.
+  
+          if (content) {
+            message.channel.send(content);
+          } else {
+            message.channel.send("This is spam message #" + count);
+            }
+          
+          if (count < maxMessages) {
+            // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
+            // channel just for bot spamming, you can remove the below statement and the entire prune command.
+            if (prune) message.channel.send("/prune");
+            count++;
+  
+            /* These numbers are good for if you want the messages to be deleted.
+             * I've also noticed that Discord pauses for about 4 seconds after you send 9
+             * messages in rapid succession, and this prevents that. I rarely have any spam
+             * messages slip through unless there is a level up from mee6 or Tatsumaki.
+             * Mileage may vary based on internet speed. */
+            if (timeToWait === null) {
+              timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
+            }
+  
+            setTimeout(sendSpamMessage, timeToWait);
+          } else {
+            // Sends a message when count is equal to maxMessages. Else statement can be
+            // modified/removed without consequence.
+            message.channel.send("------------------");
+            message.channel.send("I AM FINISHED!!!");
+            message.channel.send("------------------");
           }
-
-          setTimeout(sendSpamMessage, timeToWait);
-        } else {
-          // Sends a message when count is equal to maxMessages. Else statement can be
-          // modified/removed without consequence.
-          message.channel.send("------------------");
-          message.channel.send("I AM FINISHED!!!");
-          message.channel.send("------------------");
         }
+  
+        message.delete().catch(O_o => { /* Into the abyss we go */ })
+        sendSpamMessage();
       }
+  
+      if (command === "prune") {
+        message.channel.fetchMessages()
+        .then(messages => {
+          let message_array = messages.array();
+          message_array.length = 2;
+          message_array.map(msg => msg.delete().catch(O_o => {}));
+         }).catch(console.error);
+      }
+    });
+  } catch (error) {
+    console.error("CAUGHT ERROR => " + error);
+  }
 
-      message.delete().catch(O_o => { /* Into the abyss we go */ })
-      sendSpamMessage();
-    }
-
-    if (command === "prune") {
-      message.channel.fetchMessages()
-      .then(messages => {
-        let message_array = messages.array();
-        message_array.length = 2;
-        message_array.map(msg => msg.delete().catch(O_o => {}));
-       }).catch(console.error);
-    }
-  });
-} catch (error) {
-  console.error("CAUGHT ERROR => " + error);
+  client.login(token);
 }
 
 function setArgValues() {
@@ -116,5 +121,3 @@ function setArgValues() {
     }
   }
 }
-
-client.login(config.botToken);

@@ -1,4 +1,4 @@
 {
-  "botToken": "wowza",
+  "botToken": [ "YOUR_TOKEN_HERE", "if you want multiple accounts, put any other tokens here" ],
   "prefix": "/"
 }
