@@ -1,6 +1,20 @@
 # Spambot
 
-![Spambot Usage GIF](https://user-images.githubusercontent.com/17814535/33146576-5b103a6c-cf8a-11e7-8d47-cc2938138be8.gif)
+<p align="center">
+  <img alt="Spambot Usage GIF" src="https://user-images.githubusercontent.com/17814535/33146576-5b103a6c-cf8a-11e7-8d47-cc2938138be8.gif">
+  
+  <h3 align="center">😈 Spambot 😈</h3>
+</p>
+
+----
+
+<p align="center">
+   <img src="https://img.shields.io/badge/language-javascript-blue?color=FF69B4"/>
+   <img src="https://img.shields.io/github/license/ajmeese7/spambot"/>
+   <img src="https://img.shields.io/github/stars/ajmeese7/spambot"/>
+   <img src="https://img.shields.io/github/forks/ajmeese7/spambot"/>
+   <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
+</p>
 
 This selfbot's primary purpose is to level up your profile on Discord bots such as 
 [mee6](https://github.com/cookkkie/mee6) or [Tatsumaki](https://tatsumaki.xyz). 
@@ -24,6 +38,11 @@ of service](https://discordapp.com/terms). If you use this, your account could b
 In a command prompt in your projects folder (wherever that may be), run the following:
 
 `git clone https://github.com/ajmeese7/spambot`
+
+Also note that this will not work if you are running discord.js 11.6.3 or higher. 
+To install the newest version of discord.js that this will work on, run the following in command prompt:
+
+`npm install discord.js@11.6.2`
 
 Once finished:
 
