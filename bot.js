@@ -65,6 +65,7 @@ for (const token of config.botToken) {
             message.channel.send("------------------");
           }
         }
+        
         message.delete().catch(O_o => { /* Into the abyss we go */ })
         sendSpamMessage();
       }
