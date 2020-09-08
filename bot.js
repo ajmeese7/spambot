@@ -38,7 +38,7 @@ for (const token of config.botToken) {
             message.channel.send(content);
           } else {
             message.channel.send("This is spam message #" + count);
-            }
+          }
           
           if (count < maxMessages) {
             // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
@@ -51,9 +51,8 @@ for (const token of config.botToken) {
              * messages in rapid succession, and this prevents that. I rarely have any spam
              * messages slip through unless there is a level up from mee6 or Tatsumaki.
              * Mileage may vary based on internet speed. */
-            if (timeToWait === null) {
+            if (!timeToWait)
               timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
-            }
   
             setTimeout(sendSpamMessage, timeToWait);
           } else {
@@ -75,11 +74,11 @@ for (const token of config.botToken) {
           let message_array = messages.array();
           message_array.length = 2;
           message_array.map(msg => msg.delete().catch(O_o => {}));
-         }).catch(console.error);
+        }).catch(console.error);
       }
     });
   } catch (error) {
-    console.error("CAUGHT ERROR => " + error);
+    console.error("CAUGHT ERROR =>", error);
   }
 
   client.login(token);
