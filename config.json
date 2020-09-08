@@ -1,4 +1,5 @@
 {
   "botToken": [ "YOUR_TOKEN_HERE", "if you want multiple accounts, put any other tokens here" ],
-  "prefix": "/"
+  "prefix": "/",
+  "master_id": "0" // Place here a id of your main accaunt if you want to controll then with a other accaunt
 }
