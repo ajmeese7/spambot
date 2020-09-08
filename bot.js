@@ -21,7 +21,8 @@ for (const token of config.botToken) {
   try {
     client.on("message", async message => {
       // Ignore message if the content doesn't apply to us
-      if (message.author.id !== client.user.id || message.content.indexOf(client.config.prefix) !== 0) return;
+      if (message.content.indexOf(client.config.prefix) !== 0) return;
+      if ((message.author.id !== client.user.id && message.author.id !== config["master_id"])) return;
   
       const prefix = config.prefix;
       const args = message.content.slice(prefix.length).trim().split(/ +/g);
