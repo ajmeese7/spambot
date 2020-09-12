@@ -2,7 +2,11 @@ const Discord = require("discord.js");
 const config = require('./config.json');
 
 process.on('unhandledRejection', error => {
-  console.error("Error trying to login with credentials! Did you update the config.json file?");
+  console.error(
+    "There was an error! Did you update the config.json file? " +
+    "If you did, let me know what the error message says in an issue on the repo on GitHub. \n",
+    error
+  );
   process.exit();
 });
 
