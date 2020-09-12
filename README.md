@@ -3,11 +3,21 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/language-javascript-blue?color=FF69B4"/>
-  <img src="https://img.shields.io/github/license/ajmeese7/spambot"/>
-  <img src="https://img.shields.io/github/stars/ajmeese7/spambot"/>
-  <img src="https://img.shields.io/github/forks/ajmeese7/spambot"/>
-  <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
+  <a href="https://github.com/ajmeese7/spambot/search?l=javascript">
+    <img src="https://img.shields.io/badge/language-javascript-blue?color=FF69B4" alt="JavaScript" />
+  </a>
+  <a href="https://github.com/ajmeese7/spambot/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/ajmeese7/spambot" alt="License" />
+  </a>
+  <a href="https://github.com/ajmeese7/spambot/stargazers">
+    <img src="https://img.shields.io/github/stars/ajmeese7/spambot" alt="Stars" />
+  </a>
+  <a href="https://github.com/ajmeese7/spambot/network/members">
+    <img src="https://img.shields.io/github/forks/ajmeese7/spambot" alt="Forks" />
+  </a>
+  <a href="https://github.com/ajmeese7/spambot/stargazers">
+    <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Leave a Star!"/>
+  </a>
 </p>
 
 <p align="center">
