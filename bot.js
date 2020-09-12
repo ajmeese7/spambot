@@ -64,7 +64,7 @@ for (const token of config.botToken) {
           }
         }
   
-        message.delete().catch(O_o => { /* Into the abyss we go */ })
+        message.delete().catch(console.error);
         sendSpamMessage();
       }
   
