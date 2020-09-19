@@ -96,3 +96,7 @@ For users who want easy control over the bot without modifying any code, this is
 A full example command I used is `node bot.js --message "testing new flags" --maxMessages 4 --setTime 2500 --prune`.
 
 **NOTE:** using the `setTime` flag will override minTime and maxTime, so attempting to use both methods will be pointless. Also keep in mind that setting times that are very small can cause unexpected behavior in Discord, such as deleting the wrong messages and not deleting at all.
+
+## Stargazers
+
+[![Stargazers over time](https://starchart.cc/ajmeese7/spambot.svg)](https://starchart.cc/ajmeese7/spambot)
