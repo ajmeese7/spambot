@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const { Client } = require("discord.js");
 const config = require('./config.json');
 
 process.on('unhandledRejection', error => {
@@ -19,7 +19,7 @@ setArgValues();
 
 for (const token of config.botToken) {
   let count = 1; // Number of messages sent (modified by sendSpamMessage)
-  const client = new Discord.Client();
+  const client = new Client();
   client.config = config;
 
   try {

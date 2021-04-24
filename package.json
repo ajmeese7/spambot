@@ -10,6 +10,6 @@
   "author": "Aaron Meese",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "discord.js": "github:ajmeese7/discord.js#v11"
   }
 }
