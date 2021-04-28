@@ -47,11 +47,6 @@ In a command prompt in your projects folder (wherever that may be), run the foll
 
 `git clone https://github.com/ajmeese7/spambot`
 
-Also note that this will not work if you are running discord.js 11.6.3 or higher. 
-To install the newest version of discord.js that this will work on, run the following in command prompt:
-
-`npm install discord.js@11.6.2`
-
 Once finished:
 
 - Ensure you have NodeJS installed on your PC by running `npm`. If not, Google how to install it and do that now
