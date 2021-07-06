@@ -11,7 +11,7 @@ process.on('unhandledRejection', error => {
 });
 
 console.log("Ready to level up!");
-var maxMessages = 10000;
+var maxMessages = 3;
 var timeToWait = null, minTime = 2000, maxTime = 4350;
 var content = null;
 var prune = false;
@@ -39,15 +39,20 @@ for (const token of config.botToken) {
           // future moderation bots from detecting that you sent a spam message.
   
           if (content) {
-            message.channel.send(content);
+            var sentMessage = message.channel.send(content).then(m => {
+              // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
+              // channel just for bot spamming, you can remove the below statement and the entire prune command.
+              if (prune) m.delete();
+            });
           } else {
-            message.channel.send("This is spam message #" + count);
+            message.channel.send("This is spam message #" + count).then(m => {
+              // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
+              // channel just for bot spamming, you can remove the below statement and the entire prune command.
+              if (prune) m.delete();
+            });
           }
           
           if (count < maxMessages) {
-            // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
-            // channel just for bot spamming, you can remove the below statement and the entire prune command.
-            if (prune) message.channel.send("/prune");
             count++;
   
             /* These numbers are good for if you want the messages to be deleted.
@@ -62,23 +67,12 @@ for (const token of config.botToken) {
           } else {
             // Sends a message when count is equal to maxMessages. Else statement can be
             // modified/removed without consequence.
-            message.channel.send("------------------");
-            message.channel.send("I AM FINISHED!!!");
-            message.channel.send("------------------");
+            message.channel.send("------------------\nI AM FINISHED!!!\n------------------");
           }
         }
   
         message.delete().catch(console.error);
         sendSpamMessage();
-      }
-  
-      if (command === "prune") {
-        message.channel.fetchMessages()
-        .then(messages => {
-          let message_array = messages.array();
-          message_array.length = 2;
-          message_array.map(msg => msg.delete().catch(O_o => {}));
-        }).catch(console.error);
       }
     });
   } catch (error) {
