@@ -11,7 +11,7 @@ process.on('unhandledRejection', error => {
 });
 
 console.log("Ready to level up!");
-var maxMessages = 3;
+var maxMessages = 10000;
 var timeToWait = null, minTime = 2000, maxTime = 4350;
 var content = null;
 var prune = false;
