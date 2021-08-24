@@ -61,6 +61,7 @@ Once finished:
 ```
 
 Your prefix can be anything you want, but I tend to use the `/` because you're unlikely to ever use it on accident.
+If you don't plan to use more than one account, be sure to remove the second string!
 
 ## Getting your login token
 
